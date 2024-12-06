@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - Study Platform</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    .task-card {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      margin: 10px;
+      background-color: #f9f9f9;
+      width: 250px;
+      margin-bottom: 15px;
+    }
+
+    .task-card h5 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .task-card p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .task-card button {
+      background-color: #ff4747;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+
+    .task-card button:hover {
+      background-color: #d63636;
+    }
+
+    .task-form {
+      margin-top: 20px;
+    }
+
+    .task-input, .task-details, .task-date {
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    .add-task-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .add-task-btn:hover {
+      background-color: #218838;
+    }
+
+    .tasks-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .task-form-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .task-form-container input, .task-form-container select {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Study Platform</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="groups.html">Study Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="forum.html">Forum</a></li>
+        <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h2 class="text-center mt-4">Your Tasks</h2>
+
+    <!-- Task Form -->
+    <div class="task-form-container">
+      <h4>Enter a New Task</h4>
+      <input type="text" id="task-title" class="task-input" placeholder="Task Title (e.g., Math Homework)" />
+      <input type="text" id="task-subject" class="task-input" placeholder="Subject (e.g., Math)" />
+      <textarea id="task-details" class="task-details" placeholder="Detailed Description of the Task" rows="3"></textarea>
+      <input type="date" id="task-deadline" class="task-date" />
+      <button class="add-task-btn" onclick="addTask()">Add Task</button>
+    </div>
+
+    <!-- Displaying tasks -->
+    <div class="tasks-container" id="tasks-container">
+      <!-- Tasks will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    <p>&copy; 2024 Study Groups Platform</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Load tasks from localStorage when the page loads
+    window.onload = function() {
+      loadTasks();
+    };
+
+    // Function to add a new task
+    function addTask() {
+      const taskTitle = document.getElementById('task-title').value.trim();
+      const taskSubject = document.getElementById('task-subject').value.trim();
+      const taskDetails = document.getElementById('task-details').value.trim();
+      const taskDeadline = document.getElementById('task-deadline').value.trim();
+
+      if (taskTitle && taskSubject && taskDetails && taskDeadline) {
+        // Get existing tasks from localStorage or initialize an empty array
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Add the new task to the array
+        const newTask = {
+          title: taskTitle,
+          subject: taskSubject,
+          details: taskDetails,
+          deadline: taskDeadline
+        };
+        tasks.push(newTask);
+
+        // Save the updated tasks back to localStorage
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+
+        // Clear the input fields
+        document.getElementById('task-title').value = '';
+        document.getElementById('task-subject').value = '';
+        document.getElementById('task-details').value = '';
+        document.getElementById('task-deadline').value = '';
+
+        // Reload the tasks
+        loadTasks();
+      } else {
+        alert("Please fill in all fields!");
+      }
+    }
+
+    // Function to load tasks from localStorage and display them
+    function loadTasks() {
+      const tasksContainer = document.getElementById('tasks-container');
+      tasksContainer.innerHTML = ''; // Clear the tasks container before displaying
+
+      // Get tasks from localStorage
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+      // Display each task in a card-like structure
+      tasks.forEach((task, index) => {
+        const taskCard = document.createElement('div');
+        taskCard.classList.add('task-card');
+
+        // Add task content
+        taskCard.innerHTML = `
+          <h5>${task.title}</h5>
+          <p><strong>Subject:</strong> ${task.subject}</p>
+          <p><strong>Description:</strong> ${task.details}</p>
+          <p><strong>Deadline:</strong> ${task.deadline}</p>
+          <button onclick="removeTask(${index})">Remove</button>
+        `;
+
+        tasksContainer.appendChild(taskCard);
+      });
+    }
+
+    // Function to remove a task
+    function removeTask(index) {
+      // Get the existing tasks
+      let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+      // Remove the task at the given index
+      tasks.splice(index, 1);
+
+      // Save the updated tasks back to localStorage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+
+      // Reload the tasks
+      loadTasks();
+    }
+  </script>
+</body>
+</html>
