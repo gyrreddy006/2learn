@@ -3,130 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile - Study Platform</title>
+  <title>Study Groups - Study Platform</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
   <style>
-    .profile-header {
-      text-align: center;
-      padding: 50px 0;
-      background-color: #002f6c;
-      color: white;
-    }
-
-    .profile-header h2 {
-      font-size: 36px;
-    }
-
-    .social-icons i {
-      font-size: 30px;
-      margin: 0 10px;
-      color: #003366;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons i:hover {
-      color: #1e90ff;
-    }
-
-    .profile-card {
+    .study-group-card {
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 30px;
+      margin: 20px 0;
       padding: 20px;
       background-color: white;
     }
 
-    .profile-card h4 {
-      margin-bottom: 20px;
+    .study-group-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
-    .profile-img-preview {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
+    .study-group-card h5 {
+      font-size: 24px;
+      margin-top: 15px;
+    }
+
+    .study-group-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .study-group-card .btn {
+      background-color: #1e90ff;
+      color: white;
       margin-top: 10px;
     }
 
-    .upload-btn {
-      background-color: #1e90ff;
-      color: white;
-      border-radius: 10px;
-      padding: 10px 20px;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .upload-btn:hover {
+    .study-group-card .btn:hover {
       background-color: #003366;
     }
 
-    .profile-card-container {
+    .study-group-container {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
-    .profile-card-container .profile-card {
-      width: 48%; /* Adjust for better mobile responsiveness */
+    .study-group-container .study-group-card {
+      width: 48%;
       margin-bottom: 20px;
     }
 
-    .profile-card-container .profile-card img {
-      width: 90%;
-      height: 40%;
-      border-radius: 10px;
+    /* Navbar Customization */
+    .navbar {
+      background-color: #003366; /* Dark blue background */
     }
 
-    .upload-btn-container {
-      margin-top: 20px;
-      text-align: center;
+    .navbar-brand, .nav-link {
+      color: white !important; /* White text color */
     }
 
-    .profile-form .form-group {
-      margin-bottom: 15px;
+    .navbar-brand:hover, .nav-link:hover {
+      color: #1e90ff !important; /* Light blue on hover */
     }
 
-    .btn-social {
-      width: 100%;
-    }
-
-    .form-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .form-container .form-group {
-      width: 48%;
-    }
-
-    .form-container .save-btn {
-      align-self: flex-end;
+    .create-group-btn {
+      background-color: #28a745;
+      color: white;
       margin-top: 20px;
     }
 
-    .form-container .form-group input,
-    .form-container .form-group textarea {
-      border-radius: 10px;
+    .create-group-btn:hover {
+      background-color: #218838;
     }
 
-    /* Mobile responsive adjustments */
+    /* Mobile responsiveness for the study group cards */
     @media (max-width: 768px) {
-      .profile-card-container .profile-card {
-        width: 100%; /* Stack profile cards on mobile */
+      .study-group-container .study-group-card {
+        width: 100%; /* Stack cards on mobile screens */
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Navbar with Hamburger Menu -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="index.html">Study Platform</a>
-    <!-- Hamburger Toggle for Mobile View -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -140,93 +101,60 @@
     </div>
   </nav>
 
-  <!-- Profile Header -->
-  <div class="profile-header">
-    <h2>Your Profile</h2>
-    <p>Manage your information and connect with other learners</p>
-  </div>
+  <!-- Study Groups Header -->
+  <div class="container mt-5">
+    <h2 class="text-center">Study Groups</h2>
+    <p class="text-center">Join a study group to collaborate and learn together</p>
 
-  <!-- Profile Card Container -->
-  <div class="container profile-card-container">
-    <!-- Profile Photo Card -->
-    <div class="profile-card">
-      <h4 class="text-center">Profile Picture</h4>
-      <img id="profile-img" src="https://via.placeholder.com/100" alt="Profile Picture" class="img-fluid rounded-circle profile-img-preview">
+    <!-- Button to create a study group -->
+    <div class="text-center">
+      <button class="btn create-group-btn" onclick="window.location.href='https://meet.google.com/new'">Create New Study Group</button>
     </div>
 
-    <!-- Profile Details Card -->
-    <div class="profile-card">
-      <h4>Profile Information</h4>
-      <p><strong>Name:</strong> <span id="profile-name">John Doe</span></p>
-      <p><strong>Email:</strong> <span id="profile-email">johndoe@example.com</span></p>
-      <p><strong>Major:</strong> <span id="profile-major">Computer Science</span></p>
-      <p><strong>Bio:</strong> <span id="profile-bio">Enthusiastic learner and collaborator, passionate about coding and technology.</span></p>
-      <h5>Connect with Me:</h5>
-      <div class="social-icons text-center">
-        <a id="linkedin-link" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a id="github-link" href="#" target="_blank"><i class="fab fa-github"></i></a>
-        <a id="twitter-link" href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <!-- Study Group Cards -->
+    <div class="study-group-container">
+      <div class="study-group-card">
+        <img src="image1.jpg" alt="Study Group 1">
+        <h5>Mathematics Group</h5>
+        <p>Join this group to discuss math problems, solve equations, and collaborate on assignments.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/xyz123'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image2.jpg" alt="Study Group 2">
+        <h5>Computer Science Group</h5>
+        <p>Collaborate with others in this group to solve coding problems and share resources.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/abc456'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image3.jpg" alt="Study Group 3">
+        <h5>Web Development Group</h5>
+        <p>Discuss the latest web technologies, share project ideas, and help each other with coding.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/def789'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image4.jpg" alt="Study Group 4">
+        <h5>Physics Group</h5>
+        <p>Join this group to discuss complex physics topics, solve problems, and collaborate on experiments.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/ghi012'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image5.jpg" alt="Study Group 5">
+        <h5>Data Science Group</h5>
+        <p>Connect with other learners and experts in data science, and share resources for your projects.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/jkl345'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image6.jpg" alt="Study Group 6">
+        <h5>AI & Machine Learning Group</h5>
+        <p>Join this group to discuss the latest developments in AI and ML, and collaborate on research.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/mno678'">Join Group</button>
       </div>
     </div>
-  </div>
-
-  <hr>
-
-  <!-- Upload Photo Button -->
-  <div class="upload-btn-container text-center">
-    <div class="upload-btn" onclick="document.getElementById('file-input').click();">
-      Update Photo
-    </div>
-    <input type="file" id="file-input" accept="image/*" style="display: none;" onchange="previewImage(event)">
-  </div>
-
-  <!-- Update Profile Form -->
-  <div class="container">
-    <h4>Update Your Profile</h4>
-    <form id="profile-form" class="profile-form">
-      <div class="form-container">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email">
-        </div>
-      </div>
-
-      <div class="form-container">
-        <div class="form-group">
-          <label for="major">Major</label>
-          <input type="text" class="form-control" id="major" placeholder="Enter your major">
-        </div>
-        <div class="form-group">
-          <label for="bio">Bio</label>
-          <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about yourself"></textarea>
-        </div>
-      </div>
-
-      <div class="form-container">
-        <div class="form-group">
-          <label for="linkedin">LinkedIn URL</label>
-          <input type="url" class="form-control" id="linkedin" placeholder="Enter LinkedIn URL">
-        </div>
-        <div class="form-group">
-          <label for="github">GitHub URL</label>
-          <input type="url" class="form-control" id="github" placeholder="Enter GitHub URL">
-        </div>
-      </div>
-
-      <div class="form-container">
-        <div class="form-group">
-          <label for="twitter">Twitter URL</label>
-          <input type="url" class="form-control" id="twitter" placeholder="Enter Twitter URL">
-        </div>
-        <div class="save-btn">
-          <button type="submit" class="btn btn-primary btn-social">Save Changes</button>
-        </div>
-      </div>
-    </form>
   </div>
 
   <!-- Footer -->
@@ -234,64 +162,9 @@
     <p>&copy; 2024 Study Groups Platform</p>
   </footer>
 
-  <!-- Font Awesome for Social Media Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Bootstrap and jQuery Scripts for Hamburger Menu -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- Image Preview Script -->
-  <script>
-    // Load profile data from localStorage when the page loads
-    window.onload = function() {
-      if (localStorage.getItem("profileData")) {
-        const profileData = JSON.parse(localStorage.getItem("profileData"));
-        document.getElementById('profile-name').innerText = profileData.name;
-        document.getElementById('profile-email').innerText = "Email: " + profileData.email;
-        document.getElementById('profile-major').innerText = "Major: " + profileData.major;
-        document.getElementById('profile-bio').innerText = "Bio: " + profileData.bio;
-        document.getElementById('linkedin-link').href = profileData.linkedin;
-        document.getElementById('github-link').href = profileData.github;
-        document.getElementById('twitter-link').href = profileData.twitter;
-
-        // Load profile image from localStorage if exists
-        if (profileData.profileImage) {
-          document.getElementById('profile-img').src = profileData.profileImage;
-        }
-      }
-    };
-
-    // Handle Profile Image Preview
-    function previewImage(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        const imgElement = document.getElementById('profile-img');
-        imgElement.src = reader.result;
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
-
-    // Handle Profile Save
-    document.getElementById('profile-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const profileData = {
-        name: document.getElementById('fullName').value,
-        email: document.getElementById('email').value,
-        bio: document.getElementById('bio').value,
-        major: document.getElementById('major').value,
-        linkedin: document.getElementById('linkedin').value,
-        github: document.getElementById('github').value,
-        twitter: document.getElementById('twitter').value,
-        profileImage: document.getElementById('profile-img').src
-      };
-
-      // Save profile data to localStorage
-      localStorage.setItem('profileData', JSON.stringify(profileData));
-
-      // Alert user that changes are saved
-      alert('Profile updated successfully!');
-    });
-  </script>
 </body>
 </html>
