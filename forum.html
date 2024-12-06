@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum - Study Platform</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    .forum-card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .forum-card h5 {
+      font-size: 24px;
+    }
+
+    .forum-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .forum-card .btn {
+      background-color: #1e90ff;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .forum-card .btn:hover {
+      background-color: #003366;
+    }
+
+    .create-forum-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .create-forum-btn:hover {
+      background-color: #218838;
+    }
+
+    .forum-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .forum-container .forum-card {
+      width: 48%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">Study Platform</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="groups.html">Study Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="forum.html">Forum</a></li>
+        <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Forum Header -->
+  <div class="container mt-5">
+    <h2 class="text-center">Forum</h2>
+    <p class="text-center">Join or create forums to discuss and collaborate with other learners</p>
+    
+    <!-- Create Forum Button -->
+    <div class="text-center">
+      <div class="create-forum-btn" onclick="window.location.href='https://slack.com/create'">Create a Forum</div>
+    </div>
+
+    <!-- Existing Forum Cards -->
+    <div class="forum-container">
+      <div class="forum-card">
+        <h5>Math Enthusiasts</h5>
+        <p>Join the Math Enthusiasts forum to discuss problems, solutions, and tips with fellow learners.</p>
+        <button class="btn" onclick="joinForum('https://slack.com/join/xyz123')">Join Forum</button>
+      </div>
+      <div class="forum-card">
+        <h5>Computer Science Talk</h5>
+        <p>Join the Computer Science Talk forum to explore the latest trends, resources, and discussions.</p>
+        <button class="btn" onclick="joinForum('https://slack.com/join/abc456')">Join Forum</button>
+      </div>
+      <div class="forum-card">
+        <h5>Web Development Forum</h5>
+        <p>Connect with other learners interested in web development, share resources, and get help with projects.</p>
+        <button class="btn" onclick="joinForum('https://slack.com/join/def789')">Join Forum</button>
+      </div>
+      <div class="forum-card">
+        <h5>AI and Machine Learning</h5>
+        <p>Join this forum to stay updated on the latest in AI and ML, and collaborate on projects with experts.</p>
+        <button class="btn" onclick="joinForum('https://slack.com/join/ghi012')">Join Forum</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Study Groups Platform</p>
+  </footer>
+
+  <script>
+    // Function to join a forum (redirect to Slack channel)
+    function joinForum(url) {
+      window.location.href = url;
+    }
+  </script>
+
+  <!-- Font Awesome for Social Media Icons (if needed) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
