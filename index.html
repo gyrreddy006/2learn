@@ -23,19 +23,17 @@
 
     /* Carousel Styling */
     .carousel {
-      height: 400px;
-      width: 1800px;
-      left:200px;
-      /* Set the height of the carousel */
+      width: 35%; /* Set carousel width to 35% of the screen */
+      margin: 0 auto; /* Center the carousel */
+      height: 400px; /* Set the height of the carousel */
     }
 
     .carousel-inner {
-      height: 100%; 
-      /* Ensure the inner content matches the height */
+      height: 100%; /* Ensure the inner content matches the height */
     }
 
     .carousel-item img {
-      object-fit: fit; /* Make sure images cover the area without distortion */
+      object-fit: cover; /* Make sure images cover the area without distortion */
       height: 100%; /* Make the images fill the carousel container */
     }
 
@@ -101,6 +99,9 @@
       .container p,
       ul {
         font-size: 1rem;
+      }
+      .carousel {
+        width: 80%; /* Make the carousel wider on mobile */
       }
     }
   </style>
