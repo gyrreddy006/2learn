@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Light grey background */
+  color: #333; /* Dark text for contrast */
+}
+
+.navbar, footer {
+  background-color: #003366; /* Dark blue */
+  color: #fff; /* White text */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #ffd700; /* Gold on hover */
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #003366; /* Dark blue */
+}
+
+.btn-primary {
+  background-color: #003366; /* Dark blue */
+  border: none;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0050a0; /* Slightly lighter blue */
+}
+
+.card-body {
+  text-align: center;
+}
+
+footer {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+/* Task Completion Animation */
+.completed-task {
+  text-decoration: line-through;
+  color: #808080;
+  transition: all 0.5s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar-brand {
+      font-size: 1.5rem;
+  }
+
+  .card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  }
+
+  .card {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .container {
+      padding: 10px;
+  }
+}
