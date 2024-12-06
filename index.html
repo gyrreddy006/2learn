@@ -22,14 +22,28 @@
     }
 
     /* Carousel Styling */
+    .carousel {
+      height: 400px; /* Set the height of the carousel */
+    }
+
+    .carousel-inner {
+      height: 100%; /* Ensure the inner content matches the height */
+    }
+
+    .carousel-item img {
+      object-fit: cover; /* Make sure images cover the area without distortion */
+      height: 100%; /* Make the images fill the carousel container */
+    }
+
     .carousel-caption h5 {
-      font-size: 1rem;
+      font-size: 1.2rem; /* Slightly larger text size */
       font-weight: bold;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 10px;
       display: inline-block;
       border-radius: 3px;
     }
+
     .carousel-caption p {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 5px 10px;
