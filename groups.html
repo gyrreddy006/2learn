@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Groups - Study Platform</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .study-group-card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .study-group-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .study-group-card h5 {
+      font-size: 24px;
+      margin-top: 15px;
+    }
+
+    .study-group-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .study-group-card .btn {
+      background-color: #1e90ff;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .study-group-card .btn:hover {
+      background-color: #003366;
+    }
+
+    .study-group-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .study-group-container .study-group-card {
+      width: 48%;
+    }
+
+    /* Navbar Customization */
+    .navbar {
+      background-color: #003366; /* Dark blue background */
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important; /* White text color */
+    }
+
+    .navbar-brand:hover, .nav-link:hover {
+      color: #1e90ff !important; /* Light blue on hover */
+    }
+
+    .create-group-btn {
+      background-color: #28a745;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .create-group-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="index.html">Study Platform</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="groups.html">Study Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="forum.html">Forum</a></li>
+        <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Study Groups Header -->
+  <div class="container mt-5">
+    <h2 class="text-center">Study Groups</h2>
+    <p class="text-center">Join a study group to collaborate and learn together</p>
+
+    <!-- Button to create a study group -->
+    <div class="text-center">
+      <button class="btn create-group-btn" onclick="window.location.href='https://meet.google.com/new'">Create New Study Group</button>
+    </div>
+
+    <!-- Study Group Cards -->
+    <div class="study-group-container">
+      <div class="study-group-card">
+        <img src="image1.jpg" alt="Study Group 1">
+        <h5>Mathematics Group</h5>
+        <p>Join this group to discuss math problems, solve equations, and collaborate on assignments.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/xyz123'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image2.jpg" alt="Study Group 2">
+        <h5>Computer Science Group</h5>
+        <p>Collaborate with others in this group to solve coding problems and share resources.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/abc456'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image3.jpg" alt="Study Group 3">
+        <h5>Web Development Group</h5>
+        <p>Discuss the latest web technologies, share project ideas, and help each other with coding.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/def789'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image4.jpg" alt="Study Group 4">
+        <h5>Physics Group</h5>
+        <p>Join this group to discuss complex physics topics, solve problems, and collaborate on experiments.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/ghi012'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image5.jpg" alt="Study Group 5">
+        <h5>Data Science Group</h5>
+        <p>Connect with other learners and experts in data science, and share resources for your projects.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/jkl345'">Join Group</button>
+      </div>
+
+      <div class="study-group-card">
+        <img src="image6.jpg" alt="Study Group 6">
+        <h5>AI & Machine Learning Group</h5>
+        <p>Join this group to discuss the latest developments in AI and ML, and collaborate on research.</p>
+        <button class="btn" onclick="window.location.href='https://slack.com/join/mno678'">Join Group</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Study Groups Platform</p>
+  </footer>
+
+</body>
+</html>
