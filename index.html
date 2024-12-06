@@ -5,7 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Study Platform</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <style>
+    /* Navbar Styling */
+    .navbar {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .nav-link {
+      font-size: 1.1rem;
+    }
+    .nav-link:hover {
+      color: #17a2b8 !important;
+    }
+
+    /* Carousel Styling */
+    .carousel-caption h5 {
+      font-size: 2rem;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+    .carousel-caption p {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+
+    /* Welcome Section */
+    .container h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
+    .container p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    ul {
+      font-size: 1.2rem;
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #343a40;
+      color: #ffffff;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+    footer p {
+      margin: 0;
+    }
+
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .carousel-caption h5 {
+        font-size: 1.5rem;
+      }
+      .carousel-caption p {
+        font-size: 1rem;
+      }
+      .container h2 {
+        font-size: 2rem;
+      }
+      .container p,
+      ul {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -16,7 +96,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="groups.html">Study Groups</a>
         </li>
@@ -33,7 +113,7 @@
     </div>
   </nav>
 
-  <!-- Carousel Section (For homepage visual appeal) -->
+  <!-- Carousel Section -->
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
