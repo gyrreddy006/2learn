@@ -58,14 +58,30 @@
     .forum-container .forum-card {
       width: 48%;
     }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .forum-container .forum-card {
+        width: 100%;
+      }
+
+      .create-forum-btn {
+        width: 100%;
+        padding: 12px;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar with Hamburger Menu -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="index.html">Study Platform</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="groups.html">Study Groups</a></li>
         <li class="nav-item"><a class="nav-link" href="forum.html">Forum</a></li>
@@ -121,8 +137,7 @@
     }
   </script>
 
-  <!-- Font Awesome for Social Media Icons (if needed) -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Bootstrap and jQuery Scripts for Hamburger Menu -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
